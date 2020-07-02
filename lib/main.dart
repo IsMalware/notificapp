@@ -98,36 +98,38 @@ class _HomeState extends State<Home> {
       child: Container(
         height: MediaQuery.of(context).size.height,
         padding: const EdgeInsets.all(15),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              _form('Para:', controllerUsers),
-              _form('Titulo: ', controllerTitle),
-              _form('Mensagem', controllerBody),
-              RaisedButton.icon(
-                onPressed: () {
-                  stopwatch.start();
-                  notifica();
-                  setState(() {
-                    time = stopwatch.elapsed.inMilliseconds;
-                  });
-                  stopwatch.stop();
-                },
-                icon: Icon(Icons.email),
-                label: Text(
-                  'Enviar notificação!',
+        child: Stack(
+          children: <Widget>[
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _form('Para:', controllerUsers),
+                _form('Titulo: ', controllerTitle),
+                _form('Mensagem', controllerBody),
+                RaisedButton.icon(
+                  onPressed: contaTime,
+                  icon: Icon(Icons.email),
+                  label: Text(
+                    'Enviar notificação!',
+                  ),
                 ),
-              ),
-              Row(
+              ],
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('$totalNotifica Notificações'),
-                  Text(time.toString() + 'ms'),
+                  Text(
+                    '$totalNotifica Notificações',
+                  ),
+                  Text(
+                    time.toString() + 'ms',
+                  ),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -162,12 +164,20 @@ class _HomeState extends State<Home> {
         contentType: "application/json",
       ),
     );
-    if (response.statusCode != 200) {
+    print(response);
+    if (response.data['success'] != 1) {
       return null;
     } else {
       setState(() {
         totalNotifica++;
+        time = stopwatch.elapsed.inMilliseconds;
       });
     }
+  }
+
+  void contaTime() {
+    stopwatch.start();
+    notifica();
+    stopwatch.stop();
   }
 }
