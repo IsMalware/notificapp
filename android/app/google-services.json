@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "516475886299",
+    "firebase_url": "https://testapp-ac3d.firebaseio.com",
+    "project_id": "testapp-ac3d",
+    "storage_bucket": "testapp-ac3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516475886299:android:a3332feb8bca7464208afe",
+        "android_client_info": {
+          "package_name": "com.pja.testapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516475886299-s49tn34n7vvlkom8ach8gc8luv1s8veb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRY-tNm9gf38zVfEBYaY2oNoDvRBmJ8t4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516475886299-s49tn34n7vvlkom8ach8gc8luv1s8veb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
